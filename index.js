@@ -25,11 +25,12 @@ const questions = [
         name: 'usage',
         message: "Put your project's usage and examples here:"
     },
-    // {
-    //     type: 'list',
-    //     name: 'license',
-    //     message: 'Enter the description for your project:'
-    // },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Enter the description for your project:',
+        choices: ["MIT", "GPLv2", "Apache", "BSD 3-clause", "BSD 2-clause", "LGPLv3", "AGPLv3", "none"]
+    },
     {
         type: 'input',
         name: 'contributing',
@@ -50,6 +51,11 @@ const questions = [
         name: 'email',
         message: 'What is your email?'
     },
+    {
+        type: 'input',
+        name: 'fileName',
+        message: 'What do you want your README file to be called?'
+    },
 ];
 
 // TODO: Create a function to write README file
@@ -64,7 +70,7 @@ function init() {
     inquirer
     .prompt(questions)
     .then(answers => {
-        writeToFile("README5.md", answers)
+        writeToFile(answers.fileName, answers)
     });
 };
 
