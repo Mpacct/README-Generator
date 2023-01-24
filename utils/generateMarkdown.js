@@ -1,5 +1,6 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
+//Function that creates a License Badge based on the choice the user made in the License question in the index.js file
 function renderLicenseBadge(license) {
 let licenseBadge = ["MIT", "GPLv2", "Apache", "BSD 3-clause", "BSD 2-clause", "LGPLv3", "AGPLv3", "none"]
   if(license === licenseBadge[0]) {
@@ -25,6 +26,7 @@ let licenseBadge = ["MIT", "GPLv2", "Apache", "BSD 3-clause", "BSD 2-clause", "L
     return ``
   }
 }
+// Renders the License information text in the README to make sense based on the License option the user chose
 function renderLicenseInfo(data){
   let licenseInfo
   if (data !== "none") {
@@ -35,6 +37,7 @@ function renderLicenseInfo(data){
   return licenseInfo
 }
 // TODO: Create a function to generate markdown for README
+//Function that generates Markdown text as a README file based on input from the user
 function generateMarkdown(data) {
   const badge = renderLicenseBadge(data.license)
   let licenseInfo = renderLicenseInfo(data.license)
@@ -84,4 +87,5 @@ Email: ${data.email}
 return template;
 };
 
+//Exports the generateMarkdown function
 module.exports = generateMarkdown;
